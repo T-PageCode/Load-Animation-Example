@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>T-PageCode圆圈加载动画示例</title>
+    <style>
+        body{
+            background-color: rgb(200,255,255);
+        }
+        #load{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border: 6px solid rgb(0,255,255);
+            border-top-color: rgb(0,200,255);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            animation: go 0.8s linear infinite;
+        }
+        #load::before,
+        #load::after{
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgb(0,200,255);
+            border-radius: 50%;
+            top: 4px;
+        }
+        #load::before{
+            left: 5px;
+        }
+        #load::after{
+            right: 5px;
+        }
+        @keyframes go{
+            from{
+                transform: translate(-50%,-50%) rotate(0deg);
+            }
+            to{
+                transform: translate(-50%,-50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="load" title="这是加载圈">
+        <div id="load-go"></div>
+    </div>
+</body>
+</html>
